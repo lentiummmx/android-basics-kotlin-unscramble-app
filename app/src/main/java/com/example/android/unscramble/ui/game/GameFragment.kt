@@ -113,15 +113,6 @@ class GameFragment : Fragment() {
     }
 
     /*
-     * Gets a random word for the list of words and shuffles the letters in it.
-     */
-    private fun getNextScrambledWord(): String {
-        val tempWord = allWordsList.random().toCharArray()
-        tempWord.shuffle()
-        return String(tempWord)
-    }
-
-    /*
      * Re-initializes the data in the ViewModel and updates the views with the new data, to
      * restart the game.
      */
@@ -150,13 +141,6 @@ class GameFragment : Fragment() {
         }
     }
 
-    /*
-     * Displays the next scrambled word on screen.
-     */
-    private fun updateNextWordOnScreenDeprecated() {
-        binding.textViewUnscrambledWord.text = viewModel.currentScrambledWord.value
-    }
-
     /**
      * Creates and shows an AlertDialog with the final score.
      */
@@ -168,14 +152,5 @@ class GameFragment : Fragment() {
             .setNegativeButton(getString(R.string.exit), { _dialog, _which -> exitGame() })
             .setPositiveButton(getString(R.string.play_again)) { _, _ -> restartGame() }
             .show()
-    }
-
-    /**
-     * Called when the fragment is no longer attached to its activity.  This
-     * is called after [.onDestroy].
-     */
-    override fun onDetach() {
-        super.onDetach()
-        Log.d(TAG, "GameFragment destroyed!")
     }
 }
