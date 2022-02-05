@@ -17,7 +17,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
+    id 'kotlin-kapt'    // For DataBinding
 }
 
 android {
@@ -47,7 +47,8 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        viewBinding true
+        //viewBinding true
+        dataBinding true
     }
 }
 
